@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     @movie.year = params[:year]
 
     if @movie.save
-      redirect_to movies_url
+      redirect_to movie_url
     else
       render 'new'
     end

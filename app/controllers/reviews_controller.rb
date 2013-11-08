@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     @review.movie_id = params[:movie_id]
 
     if @review.save
-      redirect_to reviews_url
+      redirect_to movie_url(params[:movie_id])
     else
       render 'new'
     end
