@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
     @review.body = params[:body]
     @review.rating = params[:rating]
     @review.movie_id = params[:movie_id]
-
     if @review.save
       redirect_to movie_url(params[:movie_id])
     else

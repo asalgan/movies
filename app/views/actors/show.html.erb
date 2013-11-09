@@ -1,10 +1,7 @@
-<h1>Actor #<%= @actor.id %></h1>
+<h1><%= @actor.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @actor.name %>
-</p>
 
+<%= hidden_field_tag :actor_id, @actor.id %>
 <p>
   <b>Image url:</b>
   <%= @actor.image_url %>
@@ -20,4 +17,13 @@
   <%= @actor.bio %>
 </p>
 
+<p><%= link_to 'Add a New Role', new_role_url(actor_id: @actor.id) %></p>
+
+<% @actor.roles.each do |role| %>
+	<article>
+	  <% show = role.movie_id %><br>
+	  <strong><%= Movie.find_by(:id => show).title %></strong><br>
+      <%= role.name %>
+     </article>
+<% end %>
 
